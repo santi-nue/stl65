@@ -2,8 +2,10 @@ name: Build
 
 on: push
 
+env:
+  BUILD_TYPE: Release
+  
 jobs:
-
   windows:
     runs-on: windows-latest
     name: Windows
@@ -35,4 +37,13 @@ jobs:
         perl -i -p -e 's/(AC_CHECK_LIB\(\[c\].+| sys\/resource.h)//g' configure.ac
         ./bootstrap.sh && ./configure --prefix=/mingw64 && make
         make install
+        
+    - name: Clone and build 
+      working-directory: ${{ runner.temp }}
+      run: |
+        git clone https://github.com/miek/inspectrum.git
+        cd inspectrum
+        mkdir build
+        cd build
+        cmake ..
         
