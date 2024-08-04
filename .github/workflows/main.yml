@@ -46,6 +46,7 @@ jobs:
         mkdir build
         cd build
         cmake ..
+        ninja
 
     - name: upload artifact
       uses: actions/upload-artifact@v4
