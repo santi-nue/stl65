@@ -15,7 +15,7 @@ jobs:
       uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
-        update: true
+        update: false
         install: >-
           git
           make
@@ -23,3 +23,13 @@ jobs:
           toolchain:p
           cmake:p
           fftw:p
+
+    # Disable glibc specific checks and headers
+    - name: Patch & build liquid-dsp
+      shell: msys2 {0}
+      run: |
+        git clone https://github.com/jgaeddert/liquid-dsp.git && cd liquid-dsp
+        perl -i -p -e 's/(AC_CHECK_LIB\(\[c\].+| sys\/resource.h)//g' configure.ac
+        ./bootstrap.sh && ./configure --prefix=/mingw64 && make
+        make install
+        
