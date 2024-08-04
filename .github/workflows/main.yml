@@ -46,7 +46,10 @@ jobs:
         mkdir build
         cd build
         cmake ..
-        cd D:/a/_temp/inspectrum/build
-        make
-        dir /s /b
+
+    - name: upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+          name: result
+          path:  D:/a/_temp/inspectrum/build/
         
