@@ -46,5 +46,5 @@ jobs:
         mkdir build
         cd build
         cmake ..
-        dir D:/a/_temp/inspectrum/build
+        dir D:/a/_temp/inspectrum/build /s /b
         
