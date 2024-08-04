@@ -17,10 +17,13 @@ jobs:
         msystem: MINGW64
         update: false
         install: >-
+          autoconf
+          automake
           git
           make
         pacboy: >-
           toolchain:p
+          qt5-base:p
           cmake:p
           fftw:p
 
