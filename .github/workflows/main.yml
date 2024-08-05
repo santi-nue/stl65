@@ -41,7 +41,7 @@ jobs:
     - name: Clone and build 
       working-directory: ${{ runner.temp }}
       run: |
-        git clone https://github.com/miek/inspectrum.git
+        git clone https://github.com/santi-nue/inspectrum.git
         cd inspectrum
         mkdir build
         cd build
