@@ -28,6 +28,7 @@ jobs:
           qt5-base:p
           cmake:p
           fftw:p
+          fftwf:p
 
     # Disable glibc specific checks and headers
     - name: Patch & build liquid-dsp
